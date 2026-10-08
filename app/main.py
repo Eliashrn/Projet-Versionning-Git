@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 
+from app import texte
+
 app = FastAPI(title="API de petits outils")
 
 
@@ -10,6 +12,6 @@ def sante():
 
 # Routeurs des modules (un par membre)
 # app.include_router(math_outils.router)
-# app.include_router(texte.router)
+app.include_router(texte.router)
 # app.include_router(conversion.router)
 # app.include_router(validation.router)

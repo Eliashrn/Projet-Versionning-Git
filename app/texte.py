@@ -15,3 +15,12 @@ def est_palindrome(mot: str) -> bool:
 @router.get("/est_palindrome/{mot}")
 def route_est_palindrome(mot: str):
     return {"mot": mot, "resultat": est_palindrome(mot)}
+def inverser(texte: str) -> str:
+    if not texte.strip():
+        erreur_400("Le texte ne peut pas être vide")
+    return texte[::-1]
+
+
+@router.get("/inverser/{texte}")
+def route_inverser(texte: str):
+    return {"texte": texte, "resultat": inverser(texte)}

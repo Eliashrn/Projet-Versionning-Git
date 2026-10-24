@@ -24,3 +24,25 @@ def test_factorielle_erreur():
 def test_route_factorielle():
     assert client.get("/math/factorielle?n=5").json() == {"resultat": 120}
     assert client.get("/math/factorielle?n=-1").status_code == 400
+
+
+
+def test_est_premier_normal():
+    assert m.est_premier(7) is True
+    assert m.est_premier(9) is False
+
+
+def test_est_premier_limite():
+    assert m.est_premier(0) is False
+    assert m.est_premier(1) is False
+    assert m.est_premier(2) is True
+
+
+def test_est_premier_erreur():
+    with pytest.raises(ValueError):
+        m.est_premier(-5)
+
+
+def test_route_est_premier():
+    assert client.get("/math/est_premier?n=7").json() == {"resultat": True}
+    assert client.get("/math/est_premier?n=-5").status_code == 400

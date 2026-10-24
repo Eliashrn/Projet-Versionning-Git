@@ -8,7 +8,6 @@ LIMITE_FACTORIELLE = 1000
 
 
 def factorielle(n: int) -> int:
-    """Retourne n! (n entier entre 0 et 1000)."""
     if n < 0:
         raise ValueError("n doit être positif ou nul")
     if n > LIMITE_FACTORIELLE:

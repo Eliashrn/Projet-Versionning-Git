@@ -24,3 +24,26 @@ def route_factorielle(n: int):
         return {"resultat": factorielle(n)}
     except ValueError as e:
         erreur_400(str(e))
+
+
+
+def est_premier(n: int) -> bool:
+    """Indique si n est un nombre premier (n >= 0)."""
+    if n < 0:
+        raise ValueError("n doit être positif ou nul")
+    if n < 2:
+        return False
+    i = 2
+    while i * i <= n:
+        if n % i == 0:
+            return False
+        i += 1
+    return True
+
+
+@router.get("/est_premier")
+def route_est_premier(n: int):
+    try:
+        return {"resultat": est_premier(n)}
+    except ValueError as e:
+        erreur_400(str(e))

@@ -46,3 +46,28 @@ def test_est_premier_erreur():
 def test_route_est_premier():
     assert client.get("/math/est_premier?n=7").json() == {"resultat": True}
     assert client.get("/math/est_premier?n=-5").status_code == 400
+
+
+
+def test_pgcd_normal():
+    assert m.pgcd(12, 18) == 6
+
+
+def test_pgcd_limite():
+    assert m.pgcd(0, 5) == 5
+
+
+def test_pgcd_erreur():
+    with pytest.raises(ValueError):
+        m.pgcd(0, 0)
+    with pytest.raises(ValueError):
+        m.pgcd(-4, 6)
+
+
+def test_route_pgcd():
+    assert client.get("/math/pgcd?a=12&b=18").json() == {"resultat": 6}
+    assert client.get("/math/pgcd?a=0&b=0").status_code == 400
+
+def test_factorielle_trop_grand():
+    with pytest.raises(ValueError):
+        m.factorielle(1001)

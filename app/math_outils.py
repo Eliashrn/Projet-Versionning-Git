@@ -1,3 +1,5 @@
+from math import gcd
+
 from fastapi import APIRouter
 
 from app.erreurs import erreur_400
@@ -45,5 +47,22 @@ def est_premier(n: int) -> bool:
 def route_est_premier(n: int):
     try:
         return {"resultat": est_premier(n)}
+    except ValueError as e:
+        erreur_400(str(e))
+
+
+def pgcd(a: int, b: int) -> int:
+    """Plus grand commun diviseur de a et b (positifs, pas tous les deux nuls)."""
+    if a < 0 or b < 0:
+        raise ValueError("a et b doivent être positifs ou nuls")
+    if a == 0 and b == 0:
+        raise ValueError("a et b ne peuvent pas être tous les deux nuls")
+    return gcd(a, b)
+
+
+@router.get("/pgcd")
+def route_pgcd(a: int, b: int):
+    try:
+        return {"resultat": pgcd(a, b)}
     except ValueError as e:
         erreur_400(str(e))

@@ -11,7 +11,7 @@ API web écrite en **Python avec FastAPI** qui expose de petites fonctions utili
 |---|---|
 | Eliashrn | math |
 | maya| texte |
-| f | conversion |
+| fred| conversion |
 
 Le module `validation` (facultatif à 3 membres) n'a pas été réalisé.
 

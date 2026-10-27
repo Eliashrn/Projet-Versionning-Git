@@ -10,8 +10,8 @@ API web écrite en **Python avec FastAPI** qui expose de petites fonctions utili
 | Membre | Module |
 |---|---|
 | Eliashrn | math |
-| _Nom du coéquipier_ | texte |
-| _Nom du coéquipier_ | conversion |
+| maya| texte |
+| f | conversion |
 
 Le module `validation` (facultatif à 3 membres) n'a pas été réalisé.
 

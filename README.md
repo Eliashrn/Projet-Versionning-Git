@@ -42,16 +42,16 @@ pip install -r requirements-dev.txt
 ## Lancer l'API
 
 ```bash
-uvicorn app.main:app --reload
+ python -m uvicorn app.main:app --reload
 ```
 
-L'API est disponible sur http://127.0.0.1:8000 et la documentation interactive (toutes les routes, avec leurs paramètres, testables dans le navigateur) sur http://127.0.0.1:8000/docs.
+L'API est disponible sur http://127.0.0.1:8000 et la documentation interactive (toutes les routes, avec leurs paramètres, testables dans le navigateur) sur http://127.0.0.1:8000/docs
 
 ## Lancer avec Docker
 
 ```bash
-docker build -t api-petits-outils .
-docker run -p 8000:8000 api-petits-outils
+ python -m docker build -t api-petits-outils .
+python -m docker run -p 8000:8000 api-petits-outils
 ```
 
 Ou, depuis l'image publiée à chaque tag de version :
